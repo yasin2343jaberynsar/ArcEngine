@@ -288,5 +288,24 @@ Both features are actively in development and are planned for **v0.0.3**.
 **v0.0.2.8.5** — Alpha development release.  
 The API is actively being built and refined. Everything is subject to change.
 
+## Why I'm Building Arc Engine
+
+Millions of developers still enjoy writing C — the language that built the world.
+
+I'm one of them. I love C for its simplicity, transparency, and control. But when I looked for a 2D game engine that was:
+
+- Written in **pure C**
+- **Fast** and **lightweight**
+- **Transparent** — no hidden magic
+- **Easy to use** — even for beginners
+
+…I couldn't find one.
+
+So I built Arc Engine.
+
+Arc is for **me** — and for anyone who loves C. But it's also designed to be **approachable**. The API is clean, the Agent catches common mistakes, and the documentation (when it's ready) will be beginner‑friendly.
+
+You don't need to be a C expert to use Arc. You just need to be willing to learn.
+
 License
 MIT — free to use, modify, and distribute.

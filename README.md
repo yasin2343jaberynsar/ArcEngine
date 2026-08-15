@@ -157,7 +157,7 @@ It uses **optimized algorithms** designed specifically for game development — 
 
 Arc is **faster than C++** in almost every benchmark — while offering additional features like the Agent safety system and hardware detection.
 
-Benchmarks will be updated as the engine matures. Full methodology and source code for all benchmarks will be published soon.
+Benchmarks will be updated as the engine matures.
 
 ### Honest Note
 

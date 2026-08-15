@@ -211,13 +211,13 @@ The Agent will also warn you if:
 
 ---
 
-### Drawing Objects (Coming Soon)
+### Objects (Coming Soon)
 
-Alongside the GC, a new **Drawing Objects** system is being developed.
+Alongside the GC, a new **Objects** system is being developed.
 
 #### What It Will Do
 
-Drawing Objects will provide a higher‑level way to manage rendering — allowing you to create, update, and draw objects without manually handling textures, positions, and drawing calls every frame.
+Objects will provide a higher‑level way to manage rendering — allowing you to create, update, and draw objects without manually handling textures, positions, and drawing calls every frame.
 
 #### Key Features (Planned)
 
@@ -229,12 +229,12 @@ Drawing Objects will provide a higher‑level way to manage rendering — allowi
 
 #### Why This Matters
 
-Drawing Objects will simplify common 2D game tasks:
+Objects will simplify common 2D game tasks:
 
 ```c
 // Instead of manually loading textures and drawing every frame:
 arc_object player = arc_create_object("player.png", 100, 200);
-arc_draw_drawing_object(&player);
+arc_draw_object(&player);
 ```
 
 Objects will also integrate with the GC — so when an object is no longer referenced, it will be cleaned up automatically.

@@ -155,14 +155,14 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
-## 🚧 What's Coming
-
 ### Garbage Collector (In Development)
 
 Arc Engine is getting a built‑in **Garbage Collector** — designed to automatically manage memory for you.
 
+> **Note:** The GC will only manage memory allocated through Arc's own functions (e.g., `arc_create_string()`, `arc_create_sprite()`). It will **not** manage memory allocated with `malloc()` or `calloc()` — you'll still need to free those manually.
+
 **Why a GC in C?**
-- No more manual `free()` — the GC tracks and releases unused memory
+- No more manual `free()` for Arc objects
 - Reduces memory leaks — especially for beginners
 - Optional — you can still manage memory manually if you prefer
 

@@ -40,7 +40,7 @@ While Raylib provides the foundation (rendering, input, and window management), 
 
 - A **complete game API** with systems for math, strings, hardware detection, and randomness
 - A built‑in **Agent** that catches common mistakes and helps you debug
-- **8 API styles** (snake_case, camelCase, PascalCase, and more)
+- **7 API styles** (snake_case, camelCase, PascalCase, and more)
 - **Optimized algorithms** designed specifically for games
 - **Counters** with edit tracking and power operations
 - **Hardware-aware features** (OS, GPU, monitor detection)

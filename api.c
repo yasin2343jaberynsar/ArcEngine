@@ -1168,13 +1168,10 @@ int main(){
     arc_turn_agent_on();
     arc_create_game_window(8100, 8100, "first game ever");
     arc_set_fps(-22);
-    arc_turn_agent_off();
     
     while (arc_game_running()){
         BeginDrawing();
-        if (arc_is_key_down(arrow_up)){
-            arc_msg("Bam");
-        }
+
         EndDrawing();
     }
 

@@ -233,8 +233,7 @@ Drawing Objects will simplify common 2D game tasks:
 
 ```c
 // Instead of manually loading textures and drawing every frame:
-arc_drawing_object player = arc_create_drawing_object("player.png", 100, 200);
-player.x += 5;
+arc_object player = arc_create_object("player.png", 100, 200);
 arc_draw_drawing_object(&player);
 ```
 

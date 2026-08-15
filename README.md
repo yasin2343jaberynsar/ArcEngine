@@ -159,6 +159,32 @@ Arc is **faster than C++** in almost every benchmark — while offering addition
 
 Benchmarks will be updated as the engine matures.
 
+## Will Arc Have a GUI Editor? And Will It Work Without a GUI?
+
+### GUI Editor
+
+**Yes** — a GUI editor is planned for Arc Engine.
+
+It will be a separate tool built with **Electron** or a similar web‑based framework, designed to work alongside the engine. The editor will allow you to:
+
+- Place and arrange objects visually
+- Edit properties in real time
+- Build levels and scenes without writing code
+
+> **Note:** The editor is a **future feature**. The current focus is on stabilising the core engine and API.
+
+### Working Without a GUI (Headless Mode)
+
+**Yes** — Arc Engine is designed to run without a graphical interface.
+
+This is useful for:
+
+- **Server‑side game logic** — running game simulations on a remote server
+- **Automated testing** — running tests without a display
+- **Dedicated servers** — hosting multiplayer games without a GPU or window
+
+> **Important:** Headless mode is planned but not yet implemented. It will be introduced in a future release.
+
 ### Honest Note
 
 Arc is still in **active development**. Some functions may change, and performance will improve over time.  

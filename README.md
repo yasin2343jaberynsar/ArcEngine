@@ -101,8 +101,22 @@ int main() {
 }
 ```
 Build
+for linux
+
 ```bash
-gcc -o game main.c api.c -lraylib -lm
+gcc -o main api.c -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+```
+
+for windows 
+
+```bash
+gcc -o main.exe api.c -lraylib -lgdi32 -lwinmm -lm -lpthread
+```
+
+for MacOS
+
+```bash
+gcc -o main api.c -lraylib -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 ```
 
 ## Benchmarks

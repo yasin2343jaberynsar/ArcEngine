@@ -155,6 +155,21 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
+## 🚧 What's Coming
+
+### Garbage Collector (In Development)
+
+Arc Engine is getting a built‑in **Garbage Collector** — designed to automatically manage memory for you.
+
+**Why a GC in C?**
+- No more manual `free()` — the GC tracks and releases unused memory
+- Reduces memory leaks — especially for beginners
+- Optional — you can still manage memory manually if you prefer
+
+**Status:** Actively in development — not yet available in the current release.
+
+**Planned release:** v0.0.3
+
 ## Version
 
 **v0.0.2.8.5** — Alpha development release.  

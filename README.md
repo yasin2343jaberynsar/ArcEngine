@@ -155,5 +155,10 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
+## Version
+
+**v0.0.2.8.5** — Alpha development release.  
+The API is actively being built and refined. Everything is subject to change.
+
 License
 MIT — free to use, modify, and distribute.

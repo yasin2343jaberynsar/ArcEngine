@@ -26,6 +26,27 @@
 
 ---
 
+## Built With
+
+Arc Engine is built on top of [Raylib](https://www.raylib.com/), a lightweight and efficient game development library.
+
+A huge thank you to **raysan5** and the entire Raylib team for their incredible work — Arc Engine wouldn't exist without their foundation.
+
+## What Arc Engine Is Not
+
+Arc Engine is **not** a simple wrapper around Raylib.
+
+While Raylib provides the foundation (rendering, input, and window management), Arc Engine adds:
+
+- A **complete game API** with systems for math, strings, hardware detection, and randomness
+- A built‑in **Agent** that catches common mistakes and helps you debug
+- **8 API styles** (snake_case, camelCase, PascalCase, and more)
+- **Optimized algorithms** designed specifically for games
+- **Counters** with edit tracking and power operations
+- **Hardware-aware features** (OS, GPU, monitor detection)
+
+Raylib is the foundation — Arc Engine is the house built on top of it.
+
 ## Quick Example
 
 ```c
@@ -39,9 +60,8 @@ int main() {
     arc_position pos = arc_create_position(400, 300);
 
     while (arc_game_running()) {
-        arc_begin_drawing();
-        arc_draw_text(title.content, pos.x, pos.y);
-        arc_end_drawing();
+        BeginDrawing(); // Raylib function (wrapper actively in development)
+        EndDrawing(); // Raylib function (wrapper actively in development)
     }
 
     arc_close_window();

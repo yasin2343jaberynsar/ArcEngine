@@ -155,22 +155,94 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
+## 🚧 What's Coming
+
 ### Garbage Collector (In Development)
 
-Arc Engine is getting a built‑in **Garbage Collector** — designed to automatically manage memory for you.
+Arc Engine is getting a built‑in **Garbage Collector (GC)** — designed to automatically manage memory for you.
 
-> **Note:** The GC will only manage memory allocated through Arc's own functions (e.g., `arc_create_string()`, `arc_create_sprite()`). It will **not** manage memory allocated with `malloc()` or `calloc()` — you'll still need to free those manually.
+#### How It Works
 
-Additionally, a new function — **`arc_allocate()`** — will be introduced. Any memory allocated with `arc_allocate()` will also be tracked and automatically freed by the GC, making it easier to use dynamic memory without worrying about manual cleanup.
+The GC will track memory allocated through Arc's own functions (`arc_create_string()`, `arc_create_sprite()`, etc.) and through a new function — **`arc_allocate()`** — and automatically free it when it's no longer in use.
 
-**Why a GC in C?**
-- No more manual `free()` for Arc objects
-- Reduces memory leaks — especially for beginners
-- Optional — you can still manage memory manually if you prefer
+#### When to Use It (And When Not To)
 
-**Status:** Actively in development — not yet available in the current release.
+The GC is great for:
 
-**Planned release:** v0.0.3
+- Long‑lived objects (players, enemies, persistent game data)
+- Assets that are loaded once and used throughout the game
+- Situations where manual memory management is tedious and error‑prone
+
+However, the GC is **not** recommended for:
+
+- Short‑lived objects (e.g., creating a string, using it immediately, and freeing it)
+- High‑frequency allocations inside a tight loop
+- Scenarios where you need memory to be freed *exactly* when you say so
+
+> **Note:** The GC runs periodically — not instantly. If you create and destroy objects every frame, the GC might not keep up, and you'll see memory usage grow until the next collection cycle. For these cases, manual `malloc()`/`free()` is still the better choice.
+
+#### What the GC Covers
+
+| What the GC Covers | What It Doesn't |
+|--------------------|-----------------|
+| `arc_create_string()` | `malloc()` |
+| `arc_create_sprite()` | `calloc()` |
+| `arc_create_counter()` | `realloc()` |
+| `arc_allocate()` | Manual `free()` still needed for these |
+
+#### The New `arc_allocate()` Function
+
+A new function — **`arc_allocate()`** — will be introduced alongside the GC. Any memory allocated with `arc_allocate()` will be tracked and automatically freed by the GC.
+
+```c
+void* ptr = arc_allocate(1024);  // Allocated and tracked by GC
+// No need to free — the GC will handle it
+```
+
+This makes it easier to use dynamic memory without worrying about manual cleanup — but as noted above, it's not suitable for all use cases.
+
+#### GC + Agent Integration
+
+The Agent will also warn you if:
+
+- The GC is struggling to keep up with allocations
+- You're allocating memory in a tight loop without freeing
+- Memory usage is growing unexpectedly
+
+---
+
+### Drawing Objects (Coming Soon)
+
+Alongside the GC, a new **Drawing Objects** system is being developed.
+
+#### What It Will Do
+
+Drawing Objects will provide a higher‑level way to manage rendering — allowing you to create, update, and draw objects without manually handling textures, positions, and drawing calls every frame.
+
+#### Key Features (Planned)
+
+- Create objects with a single function call
+- Automatically manage sprite loading and unloading
+- Built‑in position, rotation, and scaling
+- Layer support for draw order
+- Optional GC integration — objects can be automatically freed when no longer needed
+
+#### Why This Matters
+
+Drawing Objects will simplify common 2D game tasks:
+
+```c
+// Instead of manually loading textures and drawing every frame:
+arc_drawing_object player = arc_create_drawing_object("player.png", 100, 200);
+player.x += 5;
+arc_draw_drawing_object(&player);
+```
+
+Objects will also integrate with the GC — so when an object is no longer referenced, it will be cleaned up automatically.
+
+#### Status
+
+Both features are actively in development and are planned for **v0.0.3**.
 
 ## Version
 

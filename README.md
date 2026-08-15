@@ -26,6 +26,38 @@
 
 ---
 
+## Agent Safety System
+
+Arc Engine includes a built-in **Agent** — a system designed to catch common mistakes and help you debug faster.
+
+The Agent:
+
+- **Detects common errors** — like invalid window sizes, negative FPS, or out-of-bounds array access
+- **Warns you** — without stopping your game (so you can keep testing)
+- **Fixes simple issues automatically** — when it makes sense (e.g., defaulting to 60 FPS if you pass an invalid value)
+- **Can be turned off** — when you're ready for production or want to test edge cases
+
+### Why The Agent Exists
+
+Game development is hard. Bugs happen. The Agent is there to:
+
+- **Save you time** — catch mistakes early
+- **Reduce crashes** — handle invalid input gracefully
+- **Help you learn** — clear warnings that explain what went wrong
+
+### Agent vs Production
+
+The Agent is designed for **development**, not shipping.
+
+> "The Agent isn't the tool that delivers your games. It can help, but it's always recommended to turn it off at the final stages of your project, fix the bugs, and ship a clean product."
+
+### Turning The Agent Off
+
+```c
+arc_turn_agent_off();  // Disable Agent
+arc_turn_agent_on();   // Re-enable Agent (default)
+```
+
 ## Built With
 
 Arc Engine is built on top of [Raylib](https://www.raylib.com/), a lightweight and efficient game development library.

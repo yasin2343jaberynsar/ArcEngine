@@ -707,14 +707,14 @@ typedef struct {
     int size_in_bytes;
 } arc_string;
 
-int arc_string_length(arc_string string){
+int arc_string_length(arc_string *string){
     int length = 0;
-    while (string.content[length] != '\0'){
+    while (string->content[length] != '\0'){
         length++;
     }
 
-    string.length = length;
-    string.size_in_bytes = length+1;
+    string->length = length;
+    string->size_in_bytes = length+1;
 
     return length;
 }
@@ -1082,77 +1082,77 @@ typedef struct {
     unsigned int edits;
 } arc_counter;  
 
-void arc_randomize_counter_integer(arc_counter counter, int min, int max){
-    counter.count = (double)arc_random_integer(min, max);
-    counter.edits++;
+void arc_randomize_counter_integer(arc_counter *counter, int min, int max){
+    counter->count = (double)arc_random_integer(min, max);
+    counter->edits++;
 }
 
-void arc_randomize_counter_double(arc_counter counter, int min, int max){
-    counter.count = arc_random_double(min, max);
-    counter.edits++;
-
-}
-
-void arc_counter_add(arc_counter counter, double number){
-    counter.count += number;
-    counter.edits++;
+void arc_randomize_counter_double(arc_counter *counter, int min, int max){
+    counter->count = arc_random_double(min, max);
+    counter->edits++;
 
 }
 
-void arc_counter_subtract(arc_counter counter, double number){
-    counter.count -= number;
-    counter.edits++;
+void arc_counter_add(arc_counter *counter, double number){
+    counter->count += number;
+    counter->edits++;
 
 }
 
-int arc_get_counter_integer(arc_counter counter){
-    return (int)counter.count;
+void arc_counter_subtract(arc_counter *counter, double number){
+    counter->count -= number;
+    counter->edits++;
+
 }
 
-double arc_get_counter(arc_counter counter){
-    return counter.count;
+int arc_get_counter_integer(arc_counter *counter){
+    return (int)counter->count;
 }
 
-void arc_double_counter(arc_counter counter){
-    counter.count *= 2;
-    counter.edits++;
+double arc_get_counter(arc_counter *counter){
+    return counter->count;
 }
 
-void arc_multiply_counter(arc_counter counter, double number){
-    counter.count *= number;
-    counter.edits++;
+void arc_double_counter(arc_counter *counter){
+    counter->count *= 2;
+    counter->edits++;
 }
 
-void arc_abs_counter(arc_counter counter){
-    counter.count = arc_absd(counter.count);
-    counter.edits++;
+void arc_multiply_counter(arc_counter *counter, double number){
+    counter->count *= number;
+    counter->edits++;
 }
 
-void arc_divide_counter(arc_counter counter, double number){
+void arc_abs_counter(arc_counter *counter){
+    counter->count = arc_absd(counter->count);
+    counter->edits++;
+}
+
+void arc_divide_counter(arc_counter *counter, double number){
     if (agent){
         if (number == 0.0){
             return;
         }
     }
 
-    counter.count /= number;
-    counter.edits++;
+    counter->count /= number;
+    counter->edits++;
 
 }
 
-void arc_counter_reset(arc_counter counter){
-    counter.count = 0;
-    counter.edits++;
+void arc_counter_reset(arc_counter *counter){
+    counter->count = 0;
+    counter->edits++;
 }
 
-void arc_counter_full_reset(arc_counter counter){
-    counter.count = 0;
-    counter.edits = 0;
+void arc_counter_full_reset(arc_counter *counter){
+    counter->count = 0;
+    counter->edits = 0;
 }
 
-void arc_pow_counter(arc_counter counter, double number){
-    counter.count = powl(counter.count, number);
-    counter.edits++;
+void arc_pow_counter(arc_counter *counter, double number){
+    counter->count = powl(counter->count, number);
+    counter->edits++;
 }
 
 arc_counter arc_create_counter(double count){
@@ -1168,10 +1168,13 @@ int main(){
     arc_turn_agent_on();
     arc_create_game_window(8100, 8100, "first game ever");
     arc_set_fps(-22);
+    arc_turn_agent_off();
     
     while (arc_game_running()){
         BeginDrawing();
-
+        if (arc_is_key_down(arrow_up)){
+            arc_msg("Bam");
+        }
         EndDrawing();
     }
 

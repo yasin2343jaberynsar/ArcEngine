@@ -195,6 +195,8 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
+
+
 ## 🚧 What's Coming
 
 ### Garbage Collector (In Development)
@@ -278,6 +280,18 @@ arc_draw_object(&player);
 ```
 
 Objects will also integrate with the GC — so when an object is no longer referenced, it will be cleaned up automatically.
+
+## CamelCase API (Coming in v0.0.3)
+
+v0.0.3 will introduce the **CamelCase API** — a new variant of the Arc Engine API that uses `camelCase` naming conventions alongside the existing `snake_case`.
+
+```c
+// snake_case (current)
+arc_create_game_window(800, 600, "My Game");
+
+// camelCase (coming in v0.0.3)
+arcCreateGameWindow(800, 600, "My Game");
+```
 
 #### Status
 

@@ -1173,11 +1173,10 @@ int main(){
     while (arc_game_running()){
         BeginDrawing();
         if (arc_is_key_down(arrow_up)){
-            arc_msg("Bam");
+            arc_msg("up arrow is down");
         }
         EndDrawing();
     }
 
-    arc_game_running();
     return 0;
 }

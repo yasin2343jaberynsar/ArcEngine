@@ -295,7 +295,7 @@ arcCreateGameWindow(800, 600, "My Game");
 
 #### Status
 
-Both features are actively in development and are planned for **v0.0.3**.
+All features are actively in development and are planned for **v0.0.3**.
 
 ## Version
 

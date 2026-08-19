@@ -21,7 +21,7 @@
 - Object system
 - Scene management
 - Audio
-- - 7 API styles (snake_case, camelCase, PascalCase, etc.)
+- 7 API styles (snake_case, camelCase, PascalCase, etc.)
 - Collision
 
 ---

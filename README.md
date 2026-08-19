@@ -195,63 +195,8 @@ Documentation is coming soon — but the API is still evolving. Writing docs now
 
 In the meantime, The api.c file contains all the functions and their usage.
 
-
-
 ## 🚧 What's Coming
 
-### Garbage Collector (In Development)
-
-Arc Engine is getting a built‑in **Garbage Collector (GC)** — designed to automatically manage memory for you.
-
-#### How It Works
-
-The GC will track memory allocated through Arc's own functions (`arc_create_string()`, `arc_create_sprite()`, etc.) and through a new function — **`arc_allocate()`** — and automatically free it when it's no longer in use.
-
-#### When to Use It (And When Not To)
-
-The GC is great for:
-
-- Long‑lived objects (players, enemies, persistent game data)
-- Assets that are loaded once and used throughout the game
-- Situations where manual memory management is tedious and error‑prone
-
-However, the GC is **not** recommended for:
-
-- Short‑lived objects (e.g., creating a string, using it immediately, and freeing it)
-- High‑frequency allocations inside a tight loop
-- Scenarios where you need memory to be freed *exactly* when you say so
-
-> **Note:** The GC runs periodically — not instantly. If you create and destroy objects every frame, the GC might not keep up, and you'll see memory usage grow until the next collection cycle. For these cases, manual `malloc()`/`free()` is still the better choice.
-
-#### What the GC Covers
-
-| What the GC Covers | What It Doesn't |
-|--------------------|-----------------|
-| `arc_create_string()` | `malloc()` |
-| `arc_create_sprite()` | `calloc()` |
-| `arc_create_counter()` | `realloc()` |
-| `arc_allocate()` | Manual `free()` still needed for these |
-
-#### The New `arc_allocate()` Function
-
-A new function — **`arc_allocate()`** — will be introduced alongside the GC. Any memory allocated with `arc_allocate()` will be tracked and automatically freed by the GC.
-
-```c
-void* ptr = arc_allocate(1024);  // Allocated and tracked by GC
-// No need to free — the GC will handle it
-```
-
-This makes it easier to use dynamic memory without worrying about manual cleanup — but as noted above, it's not suitable for all use cases.
-
-#### GC + Agent Integration
-
-The Agent will also warn you if:
-
-- The GC is struggling to keep up with allocations
-- You're allocating memory in a tight loop without freeing
-- Memory usage is growing unexpectedly
-
----
 
 ### Objects (Coming Soon)
 

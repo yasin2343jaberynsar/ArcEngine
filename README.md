@@ -200,8 +200,6 @@ In the meantime, The api.c file contains all the functions and their usage.
 
 ### Objects (Coming Soon)
 
-Alongside the GC, a new **Objects** system is being developed.
-
 #### What It Will Do
 
 Objects will provide a higher‑level way to manage rendering — allowing you to create, update, and draw objects without manually handling textures, positions, and drawing calls every frame.
@@ -212,7 +210,6 @@ Objects will provide a higher‑level way to manage rendering — allowing you t
 - Automatically manage sprite loading and unloading
 - Built‑in position, rotation, and scaling
 - Layer support for draw order
-- Optional GC integration — objects can be automatically freed when no longer needed
 
 #### Why This Matters
 
@@ -223,8 +220,6 @@ Objects will simplify common 2D game tasks:
 arc_object player = arc_create_object("player.png", 100, 200);
 arc_draw_object(&player);
 ```
-
-Objects will also integrate with the GC — so when an object is no longer referenced, it will be cleaned up automatically.
 
 ## CamelCase API (Coming in v0.0.3)
 

@@ -14,7 +14,6 @@
 - Random system (integers, doubles, positions, counters)
 - Math utilities (min, max, abs, clamp, sum, mean)
 - Agent safety system
-- 7 API styles (snake_case, camelCase, PascalCase, etc.)
 - Counters with edit tracking
 
 **Coming soon:**
@@ -22,6 +21,7 @@
 - Object system
 - Scene management
 - Audio
+- - 7 API styles (snake_case, camelCase, PascalCase, etc.)
 - Collision
 
 ---
